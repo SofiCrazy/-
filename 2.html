@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
  <head>
-  <meta charset="utf-8">
+  <meta charset="windows-1251"/>
   <title>Заказать товар</title>
   <script type="text/javascript" src="https://databoom.space/databoom.js"></script>
  </head>
@@ -24,19 +24,8 @@ var task_name = "name";
 var due_date = date.getFullYear() + (month < 10 ? '0' : '')
   + month + (day < 10 ? '0' : '') + day;
 
-var json = {"todo-item": { "content": task_name, "due-date": due_date }};
-
-$.ajax({
- type: "POST",
- url: "https://" + company + ".teamwork.com/todo_lists/"
-  + tasklist_id + "/todo_items.json",
- headers: {"Authorization": "BASIC " + window.btoa(key + ":xxx")},
- data: JSON.stringify(json),
- processData: false,
- contentType: "application/json; charset=UTF-8"
-});
-</script>
-<script>
+var json = {"todo-item": { "content": task_name, "due-date": due_date,"responsible-party-id":133740}};
+// });
 function posttas() 
 {alert("you are sure?");
 $.ajax({
