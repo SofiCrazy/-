@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="windows-1251" />
+  <title>Заказать товар</title>
+  <script type="text/javascript" src="https://databoom.space/databoom.js"></script>
+ </head>
+ <body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<form name ="subscribe" id="subscribe_frm" action="#">
+	Наименование: <input type="text" name="name" id="clientname" size="75" /> 
+	Кол-во: <input type="text" name="email" id="clientage" size="20" /><br><br>
+	<br><input type="button" name="submit" value="Оставить заявку" onclick="posttas();"/>
+</form>
+<script>
+var company = "labrab7";
+var key = "twp_4mlBR1bl3JYxMlUzK9707dqzk3SJ";
+var tasklist_id = "687454";
+var json = {"todo-item": { "content":task_name()}};
+
+var task_content = function (){ 
+var payment = ($('input[name="payment"]:checked').val());
+var task_content = 'Наименование: ' + document.getElementById('clientname').value + 'Кол-во: ' + 
+document.getElementById('clientage').value +  payment;
+return task_name;
+};
+$.ajax({
+ type: "POST",
+ url: "https://" + company + ".teamwork.com/todo_lists/"
+  + tasklist_id + "/todo_items.json",
+ headers: {"Authorization": "BASIC " + window.btoa(key + ":xxx")},
+ data: JSON.stringify(json),
+ processData: false,
+ contentType: "application/json; charset=UTF-8"
+});
+</script>
+  </body>
+</html>
