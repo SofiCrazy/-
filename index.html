@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8"">
+  <title>Заказать товар</title>
+  <link rel="stylesheet" type="text/css" href="style1.css">
+ </head>
+ <body>
+ <article align="center"><h1>Оформление заказа</h1></article>
+ <!-- <h1 align="center">Оформление заказа <h1> -->
+ <!-- <hr color:"Red" size="2" width="2500"> -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<form name ="subscribe" id="subscribe_frm" action="#">
+	Наименование: <input type="text" name="name" id="clientname" size="60" /> 
+	Количество: <input type="text" name="number" id="clientage" size="20" /><br><br>
+	<br><input type="button" name="submit" value="Отправить заказ" onclick="posttas();"/>
+</form>
+<p align="center"><img src="http://copponew3.apnetwork.it/wp-content/uploads/2016/05/Logistica.jpg"></p>
+<p>Для того чтобы оформить заказ, заполните пожалуйста форму</p>
+<a href="">Поддержка </a>
+<script>
+var company = "labrab7";
+var key = "twp_4mlBR1bl3JYxMlUzK9707dqzk3SJ";
+var tasklist_id = "687454";
+var task_name = "name";
+var json = {"todo-item": { "content":"task_name", "responsible-party-id":"133740"}};
+var task_name = function (){ 
+var task_name = 'Наименование: ' + document.getElementById('clientname').value + 'Количество:' + 
+document.getElementById('clientage').value;
+return task_name;
+};
+function posttas() 
+{alert("you are sure?");
+$.ajax({             //
+ type: "POST",
+ url: "https://" + company + ".teamwork.com/todo_lists/"
+  + tasklist_id + "/todo_items.json",
+ headers: {"Authorization": "BASIC " + window.btoa(key + ":xxx")},
+ data: JSON.stringify(json),
+ processData: false,
+ contentType: "application/json; charset=UTF-8"
+});};            //
+</script>
+  </body>
+</html>
